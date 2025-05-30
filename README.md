@@ -62,7 +62,7 @@ Proyek ini sudah dikonfigurasi untuk otomatis deploy ke GitHub Pages. Berikut la
 ### 4. Akses Aplikasi
 Setelah deploy berhasil, aplikasi akan tersedia di:
 ```
-https://fzrsahi.github.io/Astro-FloodMap/
+https://agungdunggio.github.io/Astro-FloodMap/
 ```
 
 ### 5. Troubleshooting

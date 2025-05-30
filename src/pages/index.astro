@@ -1,130 +1,208 @@
 ---
 // src/pages/index.astro
-import LandingLayout from '../layouts/landingLayout.astro';
+import LandingLayout from "./../layouts/LandingLayout.astro";
 ---
+
 <LandingLayout title="G-Flood | Simulasi Banjir Interaktif">
-    <div id="canvas-container"></div>
-    
-    <div id="css-rain"></div>
+  <div id="canvas-container"></div>
 
-    <div id="flash-overlay"></div>
-    
-    <div class="container main-content-wrapper mx-auto px-4 py-8 md:py-12 relative z-10"> {/* Penambahan py-8 md:py-12 dan class main-content-wrapper */}
-        <header class="flex justify-between items-center py-6">
-            <div class="flex items-center">
-                <a href="/" class="flex items-center"> {/* Link ke landing page */}
-                    <i class="fas fa-water text-3xl mr-2 text-blue-300"></i>
-                    <h1 class="text-2xl font-bold">G-Flood</h1>
-                </a>
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="/simulasi-banjir" class="hover:text-blue-300 transition">3D Map</a> 
-                <a href="/" class="hover:text-blue-300 transition">Landing</a>
-            </nav>
-            <button class="md:hidden text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
-        </header>
-        
-        <section class="mt-16 md:mt-24 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">Simulasi <span class="text-blue-300">Banjir</span> 3D Kota Gorontalo</h2>
-                <p class="text-lg md:text-xl text-gray-300 mb-8">Rasakan dampak banjir secara real-time melalui simulasi spasial 3D Kota Gorontalo.
-Jelajahi bagaimana air mengalir, menggenangi wilayah, dan mempengaruhi infrastruktur secara visual dan interaktif.</p>
-                <div class="flex space-x-4 justify-center md:justify-start">
-                    <button id="cobaSimulasiBtn" class="btn-rain px-8 py-3 rounded-full font-semibold flex items-center text-lg">
-                        <i class="fas fa-play mr-2"></i> Coba Simulasi
-                    </button>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center umbrella mt-12 md:mt-0">
-                <i class="fas fa-water text-8xl md:text-9xl text-blue-400"></i>
-            </div>
-        </section>
-        
-        <section class="mt-24 md:mt-32">
-            <h2 class="text-3xl font-bold text-center mb-12 md:mb-16">Fitur Unggulan G-Flood</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-6 md:p-8 rounded-xl text-center">
-                    <div class="text-4xl mb-4 text-blue-300">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Visualisasi 3D Imersif</h3>
-                    <p class="text-gray-300 text-sm md:text-base">Pahami dampak banjir dengan model 3D kota yang detail dan representasi air yang realistis.</p>
-                </div>
-                <div class="glass-card p-6 md:p-8 rounded-xl text-center">
-                    <div class="text-4xl mb-4 text-blue-300">
-                        <i class="fas fa-sliders-h"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Simulasi Interaktif</h3>
-                    <p class="text-gray-300 text-sm md:text-base">Atur parameter seperti durasi hujan dan lihat bagaimana perubahan tersebut mempengaruhi level banjir secara dinamis.</p>
-                </div>
-                <div class="glass-card p-6 md:p-8 rounded-xl text-center">
-                    <div class="text-4xl mb-4 text-blue-300">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Analisis Spasial</h3>
-                    <p class="text-gray-300 text-sm md:text-base">Identifikasi area terdampak, infrastruktur kritis, dan evaluasi risiko dengan alat bantu spasial.</p>
-                </div>
-            </div>
-        </section>
+  <div id="css-rain"></div>
 
-         <section id="skills" class="py-16 md:py-20">
-            <div class="container mx-auto px-6">
-                <div class="mt-12 md:mt-16">
-                    <h3 class="text-2xl font-semibold mb-8 md:mb-12 text-center text-white">Tools & Technologies</h3>
-                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-                        <div title="JavaScript" class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300">
-                            <i class="fab fa-js text-4xl md:text-5xl text-yellow-400"></i>
-                        </div>
-                        <div title="CesiumJS" class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300">
-                            <span class="text-3xl md:text-4xl font-bold text-blue-400">Cs</span>
-                        </div>
-                         <div title="GIS/GeoJSON" class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300">
-                            <i class="fas fa-globe-asia text-4xl md:text-5xl text-green-400"></i>
-                        </div>
-                        <div title="HTML5" class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300">
-                            <i class="fab fa-html5 text-4xl md:text-5xl text-orange-500"></i>
-                        </div>
-                        <div title="CSS3/Tailwind" class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-lg transition duration-300">
-                            <i class="fab fa-css3-alt text-4xl md:text-5xl text-blue-500"></i>
-                        </div>
-                        <div title="Astro" class="glass-card w-20 h-20 md:w-24 md:h-24 p-2 flex items-center justify-center hover:shadow-lg transition duration-300">
-                           <img src="https://astro.build/assets/press/astro-icon-light.svg" alt="Astro" class="w-10 h-10 md:w-12 md:h-12">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="mt-24 md:mt-32 mb-16 md:mb-20 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Tinjau Risiko Banjir Kota Gorontalo</h2>
-            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-6 md:px-12">Gunakan simulasi 3D spasial untuk menganalisis skenario banjir di wilayah perkotaan.</p>
-            <button id="mulaiEksplorasiBtn" class="btn-rain px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-lg md:text-xl flex items-center mx-auto">
-                <i class="fas fa-map-marked-alt mr-2"></i> Mulai Eksplorasi
-            </button>
-        </section>
-    </div>
-    
-    <footer class="glass-card-footer py-8 relative z-10">
-         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <i class="fas fa-water text-2xl mr-3 text-blue-300"></i>
-                    <h3 class="text-xl font-bold">G-Flood</h3>
-                </div>
-                <div class="flex space-x-6 text-gray-400">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram text-xl hover:text-pink-400 transition"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github text-xl hover:text-white transition"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl hover:text-blue-400 transition"></i></a>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 G-Flood. Hak Cipta Dilindungi.</p>
-            </div>
+  <div id="flash-overlay"></div>
+
+  <div
+    class="container main-content-wrapper mx-auto px-4 py-8 md:py-12 relative z-10"
+  >
+    {/* Penambahan py-8 md:py-12 dan class main-content-wrapper */}
+    <header class="flex justify-between items-center py-6">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center">
+          {/* Link ke landing page */}
+          <i class="fas fa-water text-3xl mr-2 text-blue-300"></i>
+          <h1 class="text-2xl font-bold">G-Flood</h1>
+        </a>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="/simulasi-banjir" class="hover:text-blue-300 transition"
+          >3D Map</a
+        >
+        <a href="/" class="hover:text-blue-300 transition">Landing</a>
+      </nav>
+      <button class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <section class="mt-16 md:mt-24 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
+        <h2
+          class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
+        >
+          Simulasi <span class="text-blue-300">Banjir</span> 3D Kota Gorontalo
+        </h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">
+          Rasakan dampak banjir secara real-time melalui simulasi spasial 3D
+          Kota Gorontalo. Jelajahi bagaimana air mengalir, menggenangi wilayah,
+          dan mempengaruhi infrastruktur secara visual dan interaktif.
+        </p>
+        <div class="flex space-x-4 justify-center md:justify-start">
+          <button
+            id="cobaSimulasiBtn"
+            class="btn-rain px-8 py-3 rounded-full font-semibold flex items-center text-lg"
+          >
+            <i class="fas fa-play mr-2"></i> Coba Simulasi
+          </button>
         </div>
-    </footer>
+      </div>
+      <div class="md:w-1/2 flex justify-center umbrella mt-12 md:mt-0">
+        <i class="fas fa-water text-8xl md:text-9xl text-blue-400"></i>
+      </div>
+    </section>
 
-    {/* Skrip dimuat melalui layout atau secara eksplisit di sini jika perlu */}
-    <script type="module" src="/src/js/landing-script.js"></script>
+    <section class="mt-24 md:mt-32">
+      <h2 class="text-3xl font-bold text-center mb-12 md:mb-16">
+        Fitur Unggulan G-Flood
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card p-6 md:p-8 rounded-xl text-center">
+          <div class="text-4xl mb-4 text-blue-300">
+            <i class="fas fa-cube"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Visualisasi 3D Imersif</h3>
+          <p class="text-gray-300 text-sm md:text-base">
+            Pahami dampak banjir dengan model 3D kota yang detail dan
+            representasi air yang realistis.
+          </p>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-xl text-center">
+          <div class="text-4xl mb-4 text-blue-300">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Simulasi Interaktif</h3>
+          <p class="text-gray-300 text-sm md:text-base">
+            Atur parameter seperti durasi hujan dan lihat bagaimana perubahan
+            tersebut mempengaruhi level banjir secara dinamis.
+          </p>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-xl text-center">
+          <div class="text-4xl mb-4 text-blue-300">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Analisis Spasial</h3>
+          <p class="text-gray-300 text-sm md:text-base">
+            Identifikasi area terdampak, infrastruktur kritis, dan evaluasi
+            risiko dengan alat bantu spasial.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-16 md:py-20">
+      <div class="container mx-auto px-6">
+        <div class="mt-12 md:mt-16">
+          <h3
+            class="text-2xl font-semibold mb-8 md:mb-12 text-center text-white"
+          >
+            Tools & Technologies
+          </h3>
+          <div
+            class="flex flex-wrap justify-center items-center gap-4 md:gap-8"
+          >
+            <div
+              title="JavaScript"
+              class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300"
+            >
+              <i class="fab fa-js text-4xl md:text-5xl text-yellow-400"></i>
+            </div>
+            <div
+              title="CesiumJS"
+              class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300"
+            >
+              <span class="text-3xl md:text-4xl font-bold text-blue-400"
+                >Cs</span
+              >
+            </div>
+            <div
+              title="GIS/GeoJSON"
+              class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300"
+            >
+              <i class="fas fa-globe-asia text-4xl md:text-5xl text-green-400"
+              ></i>
+            </div>
+            <div
+              title="HTML5"
+              class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-2xl transition duration-300"
+            >
+              <i class="fab fa-html5 text-4xl md:text-5xl text-orange-500"></i>
+            </div>
+            <div
+              title="CSS3/Tailwind"
+              class="glass-card w-20 h-20 md:w-24 md:h-24 flex items-center justify-center hover:shadow-lg transition duration-300"
+            >
+              <i class="fab fa-css3-alt text-4xl md:text-5xl text-blue-500"></i>
+            </div>
+            <div
+              title="Astro"
+              class="glass-card w-20 h-20 md:w-24 md:h-24 p-2 flex items-center justify-center hover:shadow-lg transition duration-300"
+            >
+              <img
+                src="https://astro.build/assets/press/astro-icon-light.svg"
+                alt="Astro"
+                class="w-10 h-10 md:w-12 md:h-12"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-24 md:mt-32 mb-16 md:mb-20 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Tinjau Risiko Banjir Kota Gorontalo
+      </h2>
+      <p
+        class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-6 md:px-12"
+      >
+        Gunakan simulasi 3D spasial untuk menganalisis skenario banjir di
+        wilayah perkotaan.
+      </p>
+      <button
+        id="mulaiEksplorasiBtn"
+        class="btn-rain px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-lg md:text-xl flex items-center mx-auto"
+      >
+        <i class="fas fa-map-marked-alt mr-2"></i> Mulai Eksplorasi
+      </button>
+    </section>
+  </div>
+
+  <footer class="glass-card-footer py-8 relative z-10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <i class="fas fa-water text-2xl mr-3 text-blue-300"></i>
+          <h3 class="text-xl font-bold">G-Flood</h3>
+        </div>
+        <div class="flex space-x-6 text-gray-400">
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram text-xl hover:text-pink-400 transition"
+            ></i></a
+          >
+          <a href="#" aria-label="GitHub"
+            ><i class="fab fa-github text-xl hover:text-white transition"
+            ></i></a
+          >
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin text-xl hover:text-blue-400 transition"
+            ></i></a
+          >
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 G-Flood. Hak Cipta Dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  {/* Skrip dimuat melalui layout atau secara eksplisit di sini jika perlu */}
+  <script type="module" src="/src/js/landing-script.js"></script>
 </LandingLayout>

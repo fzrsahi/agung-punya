@@ -1,0 +1,18 @@
+{
+  "name": "astro-cesium-flood-simulation",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.8.0",
+    "cesium": "^1.129.0"
+  },
+  "devDependencies": {
+    "vite-plugin-cesium": "^1.2.23"
+  }
+}

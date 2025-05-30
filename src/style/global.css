@@ -1,0 +1,78 @@
+/* src/styles/global.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Sangat penting! */
+  font-family: Arial, sans-serif; /* Atau font pilihan Anda */
+}
+
+/* Style untuk tombol dan kontrol Anda yang sudah ada */
+/* Anda bisa pindahkan style spesifik komponen ke komponennya jika mau */
+.control-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; 
+}
+
+.control-button:hover {
+  background-color: #0056b3;
+}
+
+#rainControls {
+  position: absolute; 
+  top: 60px; 
+  left: 10px;
+  background: rgba(255, 255, 255, 0.8); 
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000; 
+}
+
+#rainControls input[type="number"] {
+  width: 60px;
+  margin: 5px 0;
+}
+
+#rainControls button {
+  margin: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+
+/* Style untuk modal sederhana */
+#simpleModal {
+    display: none; /* Awalnya disembunyikan */
+    position: fixed;
+    z-index: 1001; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#simpleModal p {
+    margin-bottom: 20px;
+}
+
+#simpleModal button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
